@@ -5,7 +5,6 @@ class task {
     }
 }
 
-
 class listTask{
     constructor(){
         this.tasks = [];
@@ -19,10 +18,23 @@ class listTask{
     }
 
     displayArray() {
-        this.tasks.forEach((el) => {
+        this.tasksDiv.innerHTML = ""
+        this.tasks.forEach((task) => {
             const newTask = document.createElement("div");
-            newTask.innerText = el.name
+            
+            newTask.innerText = task.name
             this.tasksDiv.appendChild(newTask)
+            const deletBtn = document.createElement("button")
+            deletBtn.innerText = "supprimer"
+            newTask.appendChild(deletBtn)
+
+            newTask.style.display = 'flex';
+            newTask.style.flexDirection = 'row';
+            newTask.style.justifyContent = 'flex-end';
+            newTask.style.padding = "10px"
+            deletBtn.addEventListener("click", () => {
+                newTask.remove()
+            })
         })
     }
 }
@@ -35,6 +47,7 @@ btn.addEventListener("click", (e) => {
     e.preventDefault();
     myListTask.addTask();
     myListTask.displayArray();
+
 })
 
 

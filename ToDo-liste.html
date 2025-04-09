@@ -5,20 +5,47 @@
     <title>Document</title>
 </head>
 <body>
-
-    <form>
-      <label for="nom">To do list</label>
-      <input type="text" id="input" name="list">
-      <button type="submit" id="button">Envoyer</button>
-    </form>
-
-    <div class="tasksDiv">
+<div class="contenainer">
+    <div class="contenainer-form">
+        <form>
+            <label for="nom">To do list</label>
+            <input type="text" id="input" name="list">
+            <button type="submit" id="button">Envoyer</button>
+          </form>
+      
+          <div class="tasksDiv"></div>
 
     </div>
+    
+    </div>
+
 <style>
+    .contenainer{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+    
+    }
+    .contenainer-form{
+        border: 2px solid black;
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+    }
     .tasksDiv{
         border: 1px solid black;
         min-height: 5vh;
+        width: 200px;
+        margin-bottom: 10px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 </style>
     <script src="ToDO-liste.js"></script>
