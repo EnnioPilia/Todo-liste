@@ -14,26 +14,36 @@ class listTask{
 
     addTask() {
         const userTask = new task (this.input.value);
-        this.tasks.push(userTask);
+     
+        if (input.value === "" || input.value === null){
+            alert("saisi incorect")
+            this.tasks.reset()
+        }else{
+            this.tasks.push(userTask);
+        }
     }
 
     displayArray() {
         this.tasksDiv.innerHTML = ""
         this.tasks.forEach((task) => {
-            const newTask = document.createElement("div");
-            
-            newTask.innerText = task.name
-            this.tasksDiv.appendChild(newTask)
+            const newTask = document.createElement("li");
+            const taskName = document.createElement("span");
             const deletBtn = document.createElement("button")
+
+            taskName.innerText = task.name
             deletBtn.innerText = "supprimer"
+
+
+            this.tasksDiv.appendChild(newTask)
+            newTask.appendChild(taskName)
             newTask.appendChild(deletBtn)
 
-            newTask.style.display = 'flex';
-            newTask.style.flexDirection = 'row';
-            newTask.style.justifyContent = 'flex-end';
-            newTask.style.padding = "10px"
+            deletBtn.className = "btn btn-danger"
+            newTask.className = "list-group-item d-flex flex-row justify-content-between"
             deletBtn.addEventListener("click", () => {
+                this.tasks = this.tasks.filter((t) => t !== task);
                 newTask.remove()
+            
             })
         })
     }
@@ -47,7 +57,6 @@ btn.addEventListener("click", (e) => {
     e.preventDefault();
     myListTask.addTask();
     myListTask.displayArray();
-
 })
 
 
