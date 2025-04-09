@@ -39,7 +39,7 @@ class listTask{
             newTask.appendChild(deletBtn)
 
             deletBtn.className = "btn btn-danger"
-            newTask.className = "list-group-item d-flex flex-row justify-content-between"
+            newTask.className = "list-group-item d-flex flex-row justify-content-between align-items-center"
             deletBtn.addEventListener("click", () => {
                 this.tasks = this.tasks.filter((t) => t !== task);
                 newTask.remove()
@@ -52,11 +52,13 @@ class listTask{
 const btn = document.getElementById('button')
 
 const myListTask = new listTask ();
+const input = document.getElementById("input");
 
 btn.addEventListener("click", (e) => {
     e.preventDefault();
     myListTask.addTask();
     myListTask.displayArray();
+    input.value = "" ;
 })
 
 
